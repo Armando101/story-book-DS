@@ -1,9 +1,24 @@
 import { createButton } from "./button";
 import { Meta, StoryObj } from "@storybook/html";
 import type { ButtonArgs } from "./types";
+import ButtonDocumentation from "./button.mdx";
 
 const meta: Meta<ButtonArgs> = {
   title: "Design System/Atoms/Button",
+  decorators: [
+    (story) => {
+      const decorator = document.createElement("div");
+      decorator.style.margin = "1.5rem";
+      decorator.appendChild(story() as HTMLElement);
+      return decorator;
+    },
+  ],
+  parameters: {
+    docs: {
+      page: ButtonDocumentation,
+    },
+  },
+  tags: ["autodocs"],
   argTypes: {
     label: {
       name: "label",
