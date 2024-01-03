@@ -1,5 +1,7 @@
-import { createButton } from "./button";
 import { Meta, StoryObj } from "@storybook/html";
+import { withActions } from "@storybook/addon-actions/decorator";
+
+import { createButton } from "./button";
 import type { ButtonArgs } from "./types";
 import ButtonDocumentation from "./button.mdx";
 
@@ -12,10 +14,21 @@ const meta: Meta<ButtonArgs> = {
       decorator.appendChild(story() as HTMLElement);
       return decorator;
     },
+    withActions,
   ],
   parameters: {
     docs: {
       page: ButtonDocumentation,
+    },
+    actions: {
+      handles: ["mouseover"],
+    },
+    backgrounds: {
+      default: "default",
+      values: [
+        { name: "blackFriday", value: "#000" },
+        { name: "default", value: "#fff" },
+      ],
     },
   },
   tags: ["autodocs"],
@@ -34,9 +47,15 @@ const meta: Meta<ButtonArgs> = {
     size: {
       name: "size",
       options: ["small", "medium", "large"],
+      description: "Button size",
+      defaultValue: "small",
       control: {
         type: "radio",
       },
+    },
+    onClick: {
+      description: "Event",
+      action: "clicked",
     },
   },
 };
