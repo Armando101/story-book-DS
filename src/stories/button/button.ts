@@ -2,7 +2,7 @@ import { ButtonArgs } from "./types";
 import "./button.css";
 
 export const createButton = ({
-  style = "outline",
+  style = "outlined",
   size = "small",
   label = "button",
 }: ButtonArgs) => {

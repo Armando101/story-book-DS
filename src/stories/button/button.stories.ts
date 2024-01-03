@@ -1,14 +1,31 @@
 import { createButton } from "./button";
-import { StoryObj } from "@storybook/html";
-import { ButtonArgs } from "./types";
+import { Meta, StoryObj } from "@storybook/html";
+import type { ButtonArgs } from "./types";
 
-export default {
+const meta: Meta<ButtonArgs> = {
   title: "Design System/Atoms/Button",
-  size: {
-    control: { type: "select" },
-    option: ["small", "medium", "large"],
+  argTypes: {
+    label: {
+      name: "label",
+      type: "string",
+    },
+    style: {
+      name: "style",
+      options: ["filled", "outlined"],
+      control: {
+        type: "radio",
+      },
+    },
+    size: {
+      name: "size",
+      options: ["small", "medium", "large"],
+      control: {
+        type: "radio",
+      },
+    },
   },
 };
+export default meta;
 
 // const Template = ({ label, ...args }) => {
 //   return createButton({ label, ...args });
@@ -26,29 +43,5 @@ export const Default: StoryObj<ButtonArgs> = {
   args: {
     label: "Button",
     size: "small",
-  },
-};
-
-export const Small: StoryObj<ButtonArgs> = {
-  render: Default.render,
-  args: {
-    label: "Button",
-    size: "small",
-  },
-};
-
-export const Medium: StoryObj<ButtonArgs> = {
-  render: Default.render,
-  args: {
-    label: "Button",
-    size: "medium",
-  },
-};
-
-export const Large: StoryObj<ButtonArgs> = {
-  render: Default.render,
-  args: {
-    label: "Button",
-    size: "large",
   },
 };
