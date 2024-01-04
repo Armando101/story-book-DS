@@ -8,20 +8,29 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "test-storybook": "test-storybook",
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_699376b017ba5bd"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^7.6.7",
     "@storybook/addon-essentials": "^7.6.6",
-    "@storybook/addon-interactions": "^7.6.6",
+    "@storybook/addon-interactions": "^7.6.7",
     "@storybook/addon-links": "^7.6.6",
     "@storybook/blocks": "^7.6.6",
     "@storybook/html": "^7.6.6",
     "@storybook/html-vite": "^7.6.6",
+    "@storybook/jest": "^0.2.3",
     "@storybook/test": "^7.6.6",
+    "@storybook/test-runner": "^0.16.0",
+    "@storybook/testing-library": "^0.2.2",
+    "chromatic": "^10.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.6.6",
     "typescript": "^5.2.2",
     "vite": "^5.0.8"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "my-design-system@0.0.0"
 }

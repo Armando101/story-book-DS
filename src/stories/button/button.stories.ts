@@ -1,5 +1,7 @@
 import { Meta, StoryObj } from "@storybook/html";
 import { withActions } from "@storybook/addon-actions/decorator";
+import { userEvent, within } from "@storybook/testing-library";
+import { expect } from "@storybook/jest";
 
 import { createButton } from "./button";
 import type { ButtonArgs } from "./types";
@@ -77,5 +79,16 @@ export const Default: StoryObj<ButtonArgs> = {
   args: {
     label: "Button",
     size: "small",
+  },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement);
+
+    await step("Click button component", async () => {
+      await userEvent.click(canvas.getByRole("button"));
+    });
+
+    await step("should exists button", async () => {
+      await expect(canvas.getByText("Button")).toBeInTheDocument();
+    });
   },
 };
