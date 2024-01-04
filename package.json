@@ -10,7 +10,7 @@
     "storybook": "storybook dev -p 6006",
     "test-storybook": "test-storybook",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=chpt_699376b017ba5bd"
+    "chromatic": "npx chromatic --project-token=process.env.CHROMATIC_TOKEN"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^7.6.7",
